@@ -1,6 +1,0 @@
----
-title: IDIOT
----
-# Introduction
-
-TODO
