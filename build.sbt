@@ -1,6 +1,5 @@
 ThisBuild / scalaVersion := "3.1.0"
 
-
 lazy val jsdocs = project
   .settings(
     libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.0.0"
@@ -12,6 +11,7 @@ lazy val docs = project
   .settings(
     mdocIn := (ThisBuild / baseDirectory).value / "docs",
     mdocOut := target.value / "mdoc",
+    Compile / scalaSource := (ThisBuild / baseDirectory).value / "src",
     Compile / doc / scalacOptions ++= Seq("-siteroot", mdocOut.value.toString),
     Compile / doc / target := (ThisBuild / baseDirectory).value / "website",
     mdocJS := Some(jsdocs),
