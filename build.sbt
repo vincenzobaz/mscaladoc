@@ -11,6 +11,9 @@ lazy val docs = project
   .settings(
     mdocIn := (ThisBuild / baseDirectory).value / "docs",
     mdocOut := target.value / "mdoc",
+    mdocVariables := Map(
+      "js-out-prefix" -> (mdocOut.value / "resources").getAbsolutePath
+    ),
     Compile / scalaSource := (ThisBuild / baseDirectory).value / "src",
     Compile / doc / scalacOptions ++= Seq("-siteroot", mdocOut.value.toString),
     Compile / doc / target := (ThisBuild / baseDirectory).value / "website",
